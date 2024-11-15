@@ -11,7 +11,7 @@ class coffeeController extends Controller
      */
     public function index()
     {
-        //
+        return view('coffee.index', compact('coffee'));
     }
 
     /**
