@@ -64,7 +64,7 @@
                         <td>{{ $coffee->weight }}</td>
                         <td>
                             <a href="{{ route('coffee.show', $coffee->id) }}" class="btn btn-info">View</a>
-                            <a href="" class="btn btn-primary">Edit</a>
+                            <a href="{{ route('coffee.edit', $coffee->id) }}" class="btn btn-primary">Edit</a>
                         </td>
                     </tr>
                 @endforeach

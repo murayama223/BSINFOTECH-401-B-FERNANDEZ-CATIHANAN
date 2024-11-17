@@ -55,7 +55,8 @@ class coffeeController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $coffee = Coffee::findOrFail($id);
+        return view('coffee.edit', compact('coffee'));
     }
 
     /**
