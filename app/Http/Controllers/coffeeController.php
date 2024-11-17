@@ -21,7 +21,7 @@ class coffeeController extends Controller
      */
     public function create()
     {
-
+        return view('coffee.create',);
     }
 
     /**
