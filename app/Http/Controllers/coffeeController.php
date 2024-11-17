@@ -64,7 +64,16 @@ class coffeeController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validate = $request->validate([
+            'name' => 'required|string|max:255',
+            'price' => 'required|integer|min:1',
+            'quantity' => 'required|integer|min:1',
+            'weight' => 'required|integer|min:1',
+        ]);
+
+        $coffee = Coffee::findOrFail($id);
+        Coffee::create($validate);
+        return redirect()->route('coffee.index')->with('success','Coffee product updated successfully');
     }
 
     /**
