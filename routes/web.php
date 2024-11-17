@@ -6,5 +6,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[coffeeController::class, 'index'])->name('coffee.index');
 
-
 Route::get('/create',[coffeeController::class, 'create'])->name('coffee.create');
+
+Route::post('/store',[coffeeController::class, 'store'])->name('coffee.store');
+
+Route::get('/{id}',[coffeeController::class, 'show'])->name('coffee.show');

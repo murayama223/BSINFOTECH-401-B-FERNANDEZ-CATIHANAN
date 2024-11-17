@@ -40,35 +40,34 @@
     <div class="container mt-4">
         <h1>Coffee List</h1>
         <a href="{{ route('coffee.create') }}" class="btn btn-success">Add New Coffee</a>
-
+        <br>
+        @if (@session('success'))
+            <div class="alert alert-success">{{ session('success') }}</div>
+        @endif
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th>Name</th>
                     <th>Price</th>
                     <th>Quantity</th>
-                    <th>Weight</th>
+                    <th>Weight in grams</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
+
             <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                @foreach ($coffee as $coffee)
+                    <tr>
+                        <td>{{ $coffee->name }}</td>
+                        <td>{{ $coffee->price }}</td>
+                        <td>{{ $coffee->quantity }}</td>
+                        <td>{{ $coffee->weight }}</td>
+                        <td>
+                            <a href="{{ route('coffee.show', $coffee->id) }}" class="btn btn-info">View</a>
+                            <a href="" class="btn btn-primary">Edit</a>
+                        </td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

@@ -13,7 +13,7 @@ class coffeeController extends Controller
     public function index()
     {
         $coffee = coffee::all();
-        return view('coffee.index',);
+        return view('coffee.index', compact('coffee'));
     }
 
     /**
@@ -29,7 +29,16 @@ class coffeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = $request->validate([
+            'name' => 'required|string|max:255',
+            'price' => 'required|integer|min:1',
+            'quantity' => 'required|integer|min:1',
+            'weight' => 'required|integer|min:1',
+        ]);
+
+        Coffee::create($validate);
+
+        return redirect()->route('coffee.index')->with('success','Coffee product added successfully');
     }
 
     /**
@@ -37,7 +46,8 @@ class coffeeController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $coffee = Coffee::findOrFail(($id));
+        return view('coffee.show', compact('coffee'));
     }
 
     /**
