@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Coffee List</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <style>
         body {
             background-color: #f8f9fa;
@@ -33,6 +33,13 @@
         }
         tr:hover {
             background-color: #f1f1f1;
+        }
+        .action-buttons {
+            display: flex;
+            gap: 5px;
+        }
+        .action-buttons form {
+            margin: 0;
         }
     </style>
 </head>
@@ -63,13 +70,15 @@
                         <td>{{ $coffee->quantity }}</td>
                         <td>{{ $coffee->weight }}</td>
                         <td>
-                            <a href="{{ route('coffee.show', $coffee->id) }}" class="btn btn-info">View</a>
-                            <a href="{{ route('coffee.edit', $coffee->id) }}" class="btn btn-primary">Edit</a>
-                            <form action="{{ route('coffee.destroy', $coffee->id)}}" method="POST">
-                                <input type="hidden" name="_method" value="DELETE">
-                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                <button type="submit" class="btn btn-danger">Delete</button>
-                            </form>
+                            <div class="action-buttons">
+                                <a href="{{ route('coffee.show', $coffee->id) }}" class="btn btn-info">View</a>
+                                <a href="{{ route('coffee.edit', $coffee->id) }}" class="btn btn-primary">Edit</a>
+                                <form action="{{ route('coffee.destroy', $coffee->id)}}" method="POST">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </div>
                         </td>
                     </tr>
                 @endforeach

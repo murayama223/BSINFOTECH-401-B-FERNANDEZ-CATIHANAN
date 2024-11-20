@@ -14,7 +14,6 @@
         }
         .container {
             margin-top: 50px;
-
         }
         .card {
             border: none;
@@ -22,8 +21,7 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
         .card-header {
-            background-color: #343a40;
-            color: white;
+            color: black; /* Changed from white to black */
             border-radius: 12px 12px 0 0;
             font-size: 1.5rem;
             font-weight: bold;

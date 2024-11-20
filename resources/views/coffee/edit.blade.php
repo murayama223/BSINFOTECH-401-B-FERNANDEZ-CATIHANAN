@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Create Coffee</title>
+    <title>Edit Coffee</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <style>
         body {
-            background-color: #e9ecef;
+            background-color: #f8f9fa;
             font-family: 'Arial', sans-serif;
         }
         .container {
@@ -25,7 +25,7 @@
             color: #343a40;
         }
         .btn-success {
-            margin-bottom: 20px;
+            margin-right: 10px;
             background-color: #28a745;
             border: none;
         }
@@ -33,7 +33,11 @@
             background-color: #218838;
         }
         .btn-secondary {
-            margin-left: 10px;
+            background-color: #6c757d;
+            border: none;
+        }
+        .btn-secondary:hover {
+            background-color: #5a6268;
         }
         .form-group label {
             font-weight: 600;
@@ -46,19 +50,14 @@
             border-color: #28a745;
             box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
         }
-        .table th {
-            background-color: #28a745;
-            color: white;
-        }
         tr:hover {
-            background-color: #f8f9fa;
+            background-color: #f1f1f1;
         }
     </style>
 </head>
 <body>
     <div class="container mt-4">
-        <h1>Edit coffee</h1>
-
+        <h1>Edit Coffee</h1>
         <form action="{{ route('coffee.update', $coffee->id)}}" method="POST">
             <input type="hidden" name="_method" value="PUT">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
