@@ -65,6 +65,11 @@
                         <td>
                             <a href="{{ route('coffee.show', $coffee->id) }}" class="btn btn-info">View</a>
                             <a href="{{ route('coffee.edit', $coffee->id) }}" class="btn btn-primary">Edit</a>
+                            <form action="{{ route('coffee.destroy', $coffee->id)}}" method="POST">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
