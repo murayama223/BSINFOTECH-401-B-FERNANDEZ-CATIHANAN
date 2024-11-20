@@ -59,7 +59,7 @@
     <div class="container mt-4">
         <h1>Edit coffee</h1>
 
-        <form action="" method="POST">
+        <form action="{{ route('coffee.update', $coffee->id)}}" method="POST">
             <input type="hidden" name="_method" value="PUT">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="form-group mb-3">
