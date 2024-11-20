@@ -38,7 +38,7 @@
 </head>
 <body>
     <div class="container mt-4">
-        <h1>Coffee List</h1>
+        <h1>Coffee Ingredients List</h1>
         <a href="{{ route('coffee.create') }}" class="btn btn-success">Add New Coffee</a>
         <br>
         @if (@session('success'))

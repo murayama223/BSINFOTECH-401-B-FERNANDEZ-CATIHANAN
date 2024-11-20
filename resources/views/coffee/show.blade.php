@@ -14,7 +14,7 @@
         }
         .container {
             margin-top: 50px;
-            max-width: 800px; /* Increased width */
+
         }
         .card {
             border: none;
