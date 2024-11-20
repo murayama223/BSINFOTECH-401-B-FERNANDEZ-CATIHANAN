@@ -72,7 +72,7 @@ class coffeeController extends Controller
         ]);
 
         $coffee = Coffee::findOrFail($id);
-        Coffee::create($validate);
+        $coffee->update($validate);
         return redirect()->route('coffee.index')->with('success','Coffee product updated successfully');
     }
 

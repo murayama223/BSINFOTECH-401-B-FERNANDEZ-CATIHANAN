@@ -79,7 +79,7 @@
                 <input type="number" name="weight" class="form-control" value="{{ $coffee->weight}}" required>
             </div>
             <div class="d-flex mt-4">
-                <button type="submit" class="btn btn-success">Add</button>
+                <button type="submit" class="btn btn-success">Save</button>
                 <a href="{{route('coffee.index')}}" class="btn btn-secondary">Cancel</a>
             </div>
         </form>
