@@ -58,7 +58,6 @@
 <body>
     <div class="container mt-4">
         <h1>Add a New Coffee ingredient</h1>
-        <h2>
         <form action="{{ route('coffee.store') }}" method="POST">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="form-group mb-3">

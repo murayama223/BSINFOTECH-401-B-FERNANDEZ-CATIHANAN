@@ -30,7 +30,7 @@ class coffeeController extends Controller
     public function store(Request $request)
     {
         $validate = $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:255|unique:name',
             'price' => 'required|integer|min:1',
             'quantity' => 'required|integer|min:1',
             'weight' => 'required|integer|min:1',
@@ -65,7 +65,7 @@ class coffeeController extends Controller
     public function update(Request $request, string $id)
     {
         $validate = $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:255|unique:coffee,name,' .$id,
             'price' => 'required|integer|min:1',
             'quantity' => 'required|integer|min:1',
             'weight' => 'required|integer|min:1',
