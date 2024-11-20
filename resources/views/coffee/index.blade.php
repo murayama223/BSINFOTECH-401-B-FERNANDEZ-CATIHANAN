@@ -9,7 +9,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <style>
         body {
-            background-color: #f8f9fa;
+            background: #6F4F1A
+
         }
         .container {
             margin-top: 50px;
@@ -57,7 +58,7 @@
                     <th>Name</th>
                     <th>Price</th>
                     <th>Quantity</th>
-                    <th>Weight in grams</th>
+                    <th>Weight in grams/milliliters</th>
                     <th>Actions</th>
                 </tr>
             </thead>

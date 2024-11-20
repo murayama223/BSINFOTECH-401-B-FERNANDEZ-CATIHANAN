@@ -74,7 +74,7 @@
                 <input type="number" name="quantity" class="form-control" value="{{ $coffee->quantity}}" required>
             </div>
             <div class="form-group mb-3">
-                <label for="weight">Weight in grams</label>
+                <label for="weight">Weight in grams/milliliters</label>
                 <input type="number" name="weight" class="form-control" value="{{ $coffee->weight}}" required>
             </div>
             <div class="d-flex mt-4">
