@@ -61,6 +61,13 @@
         <p><strong>Price:{{ $coffee->price }}</strong></p>
         <p><strong>Quantity:{{ $coffee->quantity }}</strong></p>
         <p><strong>Weight:{{ $coffee->weight }}</strong></p>
+        <a href="{{ route('coffee.edit', $coffee->id) }}" class="btn btn-primary">Edit</a>
+        <form action="{{ route('coffee.destroy', $coffee->id)}}" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+    <a href="{{ route('coffee.index') }}" class="btn btn-secondary">Back</a>
     </div>
 </body>
 </html>
