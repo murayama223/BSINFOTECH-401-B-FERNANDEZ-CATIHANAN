@@ -30,7 +30,7 @@ class coffeeController extends Controller
     public function store(Request $request)
     {
         $validate = $request->validate([
-            'name' => 'required|string|max:255|unique:name',
+            'name' => 'required|string|max:255|unique:coffees',
             'price' => 'required|integer|min:1',
             'quantity' => 'required|integer|min:1',
             'weight' => 'required|integer|min:1',
@@ -65,7 +65,7 @@ class coffeeController extends Controller
     public function update(Request $request, string $id)
     {
         $validate = $request->validate([
-            'name' => 'required|string|max:255|unique:coffee,name,' .$id,
+            'name' => 'required|string|max:255|unique:coffees,name,' .$id,
             'price' => 'required|integer|min:1',
             'quantity' => 'required|integer|min:1',
             'weight' => 'required|integer|min:1',
@@ -81,6 +81,8 @@ class coffeeController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $coffee = Coffee::findOrFail($id);
+        $coffee->delete();
+        return redirect()->route('coffee.index')->with('success','Coffee product updated successfully');
     }
 }
