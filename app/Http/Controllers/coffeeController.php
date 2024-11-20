@@ -83,6 +83,6 @@ class coffeeController extends Controller
     {
         $coffee = Coffee::findOrFail($id);
         $coffee->delete();
-        return redirect()->route('coffee.index')->with('success','Coffee product updated successfully');
+        return redirect()->route('coffee.index')->with('success','Coffee product deleted successfully');
     }
 }
