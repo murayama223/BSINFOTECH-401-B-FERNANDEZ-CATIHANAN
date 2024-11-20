@@ -15,3 +15,5 @@ Route::get('/{id}',[coffeeController::class, 'show'])->name('coffee.show');
 Route::get('/{id}/edit',[coffeeController::class, 'edit'])->name('coffee.edit');
 
 Route::put('/{id}',[coffeeController::class, 'update'])->name('coffee.update');
+
+Route::delete('/{id}',[coffeeController::class, 'destroy'])->name('coffee.destroy');
