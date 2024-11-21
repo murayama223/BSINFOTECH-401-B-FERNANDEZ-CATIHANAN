@@ -15,9 +15,17 @@
                 {{ $coffee->name }}
             </div>
             <div class="card-body">
+                @if ($coffee->picture)
+                    <div class="mb-3">
+                        <p><strong>Picture:</strong></p>
+                        <img src="{{ asset('storage/' . $coffee->picture) }}" alt="{{ $coffee->name }}" class="img-fluid rounded" style="max-width: 300px;">
+                    </div>
+                @endif
+
                 <p><strong>Price:</strong> {{ $coffee->price }}</p>
                 <p><strong>Quantity:</strong> {{ $coffee->quantity }}</p>
                 <p><strong>Weight:</strong> {{ $coffee->weight }}</p>
+
                 <div class="d-flex gap-3">
                     <a href="{{ route('coffee.edit', $coffee->id) }}" class="btn btn-primary">Edit</a>
                     <form action="{{ route('coffee.destroy', $coffee->id)}}" method="POST">

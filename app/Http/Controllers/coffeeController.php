@@ -100,7 +100,15 @@ class coffeeController extends Controller
     public function destroy(string $id)
     {
         $coffee = Coffee::findOrFail($id);
+
+
+        if ($coffee->picture) {
+            Storage::disk('public')->delete($coffee->picture);
+        }
+
         $coffee->delete();
-        return redirect()->route('coffee.index')->with('success','Coffee product deleted successfully');
+
+        return redirect()->route('coffee.index')->with('success', 'Coffee product deleted successfully');
     }
+
 }
