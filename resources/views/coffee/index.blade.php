@@ -45,8 +45,8 @@
     </style>
 </head>
 <body>
-    <div class="container mt-4">
-        <h1>Coffee Ingredients List</h1>
+    <div class="container mt-4" style="background-color: #DEAA79;">
+        <h1 class="text-center">Coffee Ingredients List</h1>
         <a href="{{ route('coffee.create') }}" class="btn btn-success">Add New Coffee</a>
         <br>
         @if (session('success'))
@@ -55,11 +55,11 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Weight in grams/milliliters</th>
-                    <th>Actions</th>
+                    <th style="background-color: #DEAA79;">Name</th>
+                    <th style="background-color: #DEAA79;">Price</th>
+                    <th style="background-color: #DEAA79;">Quantity</th>
+                    <th style="background-color: #DEAA79;">Weight in grams/milliliters</th>
+                    <th style="background-color: #DEAA79;">Actions</th>
                 </tr>
             </thead>
 

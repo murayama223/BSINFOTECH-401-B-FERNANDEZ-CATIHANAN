@@ -14,10 +14,10 @@
         }
         .container {
             margin-top: 50px;
-            background-color: #ffffff;
             padding: 30px;
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            background-color: #DEAA79;
         }
         h1 {
             margin-bottom: 30px;
@@ -56,47 +56,63 @@
     </style>
 </head>
 <body>
-    <div class="container mt-4">
-        <h1>Edit Coffee</h1>
-        <!-- Update the form to allow file uploads -->
-        <form action="{{ route('coffee.update', $coffee->id)}}" method="POST" enctype="multipart/form-data">
-            <input type="hidden" name="_method" value="PUT">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-            <div class="form-group mb-3">
-                <label for="name">Name</label>
-                <input type="text" name="name" class="form-control" value="{{ $coffee->name }}" required>
-            </div>
-            <div class="form-group mb-3">
-                <label for="price">Price</label>
-                <input type="number" name="price" class="form-control" value="{{ $coffee->price }}" required>
-            </div>
-            <div class="form-group mb-3">
-                <label for="quantity">Quantity</label>
-                <input type="number" name="quantity" class="form-control" value="{{ $coffee->quantity }}" required>
-            </div>
-            <div class="form-group mb-3">
-                <label for="weight">Weight in grams/milliliters</label>
-                <input type="number" name="weight" class="form-control" value="{{ $coffee->weight }}" required>
+    <div class="container mt-5">
+        <div class="card shadow border-0 rounded">
+            <!-- Card Header -->
+            <div class="card-header text-white text-center fs-4 fw-bold" style="background-color: #DEAA79;">
+                Edit Coffee
             </div>
 
-            <div class="form-group mb-3">
-                <label for="picture">Upload Picture</label>
-                <input type="file" name="picture" class="form-control">
+            <div class="card-body" style="background-color: #DEAA79;">
+                <!-- Form -->
+                <form action="{{ route('coffee.update', $coffee->id)}}" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="_method" value="PUT">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                @if ($coffee->picture)
-                    <div class="mt-3">
-                        <p>Current Picture:</p>
-                        <img src="{{ asset('storage/' . $coffee->picture) }}" alt="Coffee Image" class="img-thumbnail" width="200">
+                    <!-- Name -->
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" name="name" class="form-control" value="{{ $coffee->name }}" required>
                     </div>
-                @endif
-            </div>
 
-            <div class="d-flex mt-4">
-                <button type="submit" class="btn btn-success">Save</button>
-                <a href="{{ route('coffee.index') }}" class="btn btn-secondary">Cancel</a>
+                    <!-- Price -->
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Price</label>
+                        <input type="number" name="price" class="form-control" value="{{ $coffee->price }}" required>
+                    </div>
+
+                    <!-- Quantity -->
+                    <div class="mb-3">
+                        <label for="quantity" class="form-label">Quantity</label>
+                        <input type="number" name="quantity" class="form-control" value="{{ $coffee->quantity }}" required>
+                    </div>
+
+                    <!-- Weight -->
+                    <div class="mb-3">
+                        <label for="weight" class="form-label">Weight (grams/milliliters)</label>
+                        <input type="number" name="weight" class="form-control" value="{{ $coffee->weight }}" required>
+                    </div>
+
+                    <!-- Picture Upload -->
+                    <div class="mb-3">
+                        <label for="picture" class="form-label">Upload Picture</label>
+                        <input type="file" name="picture" class="form-control">
+                        @if ($coffee->picture)
+                            <div class="mt-3 text-center">
+                                <p>Current Picture:</p>
+                                <img src="{{ asset('storage/' . $coffee->picture) }}" alt="Coffee Image" class="img-thumbnail" style="max-width: 200px;">
+                            </div>
+                        @endif
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="d-flex justify-content-end gap-3 mt-4">
+                        <button type="submit" class="btn btn-success px-4">Save</button>
+                        <a href="{{ route('coffee.index') }}" class="btn btn-secondary px-4">Cancel</a>
+                    </div>
+                </form>
             </div>
-        </form>
+        </div>
     </div>
 </body>
 

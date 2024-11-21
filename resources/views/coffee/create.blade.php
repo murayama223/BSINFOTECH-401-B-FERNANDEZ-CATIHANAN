@@ -56,8 +56,8 @@
     </style>
 </head>
 <body>
-    <div class="container mt-4">
-        <h1>Add a New Coffee Ingredient</h1>
+    <div class="container mt-4" style="background-color: #DEAA79;">
+        <h1 class="text-center">Add a New Coffee Ingredient</h1>
         <form action="{{ route('coffee.store') }}" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -74,7 +74,7 @@
                 <input type="number" name="quantity" class="form-control" required>
             </div>
             <div class="form-group mb-3">
-                <label for="weight">Weight in grams</label>
+                <label for="weight">Weight in grams/milliliters</label>
                 <input type="number" name="weight" class="form-control" required>
             </div>
             <div class="form-group mb-3">
