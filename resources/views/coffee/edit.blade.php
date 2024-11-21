@@ -58,30 +58,46 @@
 <body>
     <div class="container mt-4">
         <h1>Edit Coffee</h1>
-        <form action="{{ route('coffee.update', $coffee->id)}}" method="POST">
+        <!-- Update the form to allow file uploads -->
+        <form action="{{ route('coffee.update', $coffee->id)}}" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="_method" value="PUT">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
             <div class="form-group mb-3">
                 <label for="name">Name</label>
-                <input type="text" name="name" class="form-control" value="{{ $coffee->name}}" required>
+                <input type="text" name="name" class="form-control" value="{{ $coffee->name }}" required>
             </div>
             <div class="form-group mb-3">
                 <label for="price">Price</label>
-                <input type="number" name="price" class="form-control" value="{{ $coffee->price}}" required>
+                <input type="number" name="price" class="form-control" value="{{ $coffee->price }}" required>
             </div>
             <div class="form-group mb-3">
                 <label for="quantity">Quantity</label>
-                <input type="number" name="quantity" class="form-control" value="{{ $coffee->quantity}}" required>
+                <input type="number" name="quantity" class="form-control" value="{{ $coffee->quantity }}" required>
             </div>
             <div class="form-group mb-3">
                 <label for="weight">Weight in grams/milliliters</label>
-                <input type="number" name="weight" class="form-control" value="{{ $coffee->weight}}" required>
+                <input type="number" name="weight" class="form-control" value="{{ $coffee->weight }}" required>
             </div>
+
+            <div class="form-group mb-3">
+                <label for="picture">Upload Picture</label>
+                <input type="file" name="picture" class="form-control">
+
+                @if ($coffee->picture)
+                    <div class="mt-3">
+                        <p>Current Picture:</p>
+                        <img src="{{ asset('storage/' . $coffee->picture) }}" alt="Coffee Image" class="img-thumbnail" width="200">
+                    </div>
+                @endif
+            </div>
+
             <div class="d-flex mt-4">
                 <button type="submit" class="btn btn-success">Save</button>
-                <a href="{{route('coffee.index')}}" class="btn btn-secondary">Cancel</a>
+                <a href="{{ route('coffee.index') }}" class="btn btn-secondary">Cancel</a>
             </div>
         </form>
     </div>
 </body>
+
 </html>

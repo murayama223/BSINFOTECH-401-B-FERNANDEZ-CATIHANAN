@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\coffee;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class coffeeController extends Controller
 {
@@ -34,7 +35,13 @@ class coffeeController extends Controller
             'price' => 'required|integer|min:1',
             'quantity' => 'required|integer|min:1',
             'weight' => 'required|integer|min:1',
+            'picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
+
+        if ($request->hasFile('picture')) {
+            $filePath = $request->file('picture')->store('pictures', 'public');
+            $validate['picture'] = $filePath;
+        }
 
         Coffee::create($validate);
 
@@ -69,9 +76,20 @@ class coffeeController extends Controller
             'price' => 'required|integer|min:1',
             'quantity' => 'required|integer|min:1',
             'weight' => 'required|integer|min:1',
+            'picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $coffee = Coffee::findOrFail($id);
+
+        if ($request->hasFile('picture')) {
+            if ($coffee->picture) {
+                Storage::disk('public')->delete($coffee->picture);
+            }
+
+            $filePath = $request->file('picture')->store('pictures', 'public');
+            $validate['picture'] = $filePath;
+        }
+
         $coffee->update($validate);
         return redirect()->route('coffee.index')->with('success','Coffee product updated successfully');
     }

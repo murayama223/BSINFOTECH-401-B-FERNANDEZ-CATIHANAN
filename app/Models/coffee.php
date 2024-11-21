@@ -13,5 +13,6 @@ class coffee extends Model
         'price',
         'quantity',
         'weight',
+        'picture'
     ];
 }

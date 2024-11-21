@@ -76,6 +76,10 @@
                 <label for="weight">Weight in grams</label>
                 <input type="number" name="weight" class="form-control" required>
             </div>
+            <div class="form-group mb-3">
+                <label for="picture">Upload Picture</label>
+                <input type="file" name="picture" class="form-control">
+            </div>
             <div class="d-flex mt-4">
                 <button type="submit" class="btn btn-success">Add</button>
                 <a href="{{route('coffee.index')}}" class="btn btn-secondary">Cancel</a>
