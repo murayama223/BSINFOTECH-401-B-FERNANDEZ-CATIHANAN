@@ -49,7 +49,7 @@
         <h1>Coffee Ingredients List</h1>
         <a href="{{ route('coffee.create') }}" class="btn btn-success">Add New Coffee</a>
         <br>
-        @if (@session('success'))
+        @if (session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif
         <table class="table table-striped">
@@ -66,7 +66,13 @@
             <tbody>
                 @foreach ($coffee as $coffee)
                     <tr>
-                        <td>{{ $coffee->name }}</td>
+                        <td>
+                            <!-- Display the picture to the left of the coffee name -->
+                            @if ($coffee->picture)
+                                <img src="{{ asset('storage/' . $coffee->picture) }}" alt="{{ $coffee->name }}" class="img-fluid rounded" style="max-width: 50px; margin-right: 10px;">
+                            @endif
+                            {{ $coffee->name }}
+                        </td>
                         <td>{{ $coffee->price }}</td>
                         <td>{{ $coffee->quantity }}</td>
                         <td>{{ $coffee->weight }}</td>
@@ -75,8 +81,8 @@
                                 <a href="{{ route('coffee.show', $coffee->id) }}" class="btn btn-info">View</a>
                                 <a href="{{ route('coffee.edit', $coffee->id) }}" class="btn btn-primary">Edit</a>
                                 <form action="{{ route('coffee.destroy', $coffee->id)}}" method="POST">
-                                    <input type="hidden" name="_method" value="DELETE">
-                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    @csrf
+                                    @method('DELETE')
                                     <button type="submit" class="btn btn-danger">Delete</button>
                                 </form>
                             </div>
@@ -87,4 +93,5 @@
         </table>
     </div>
 </body>
+
 </html>
