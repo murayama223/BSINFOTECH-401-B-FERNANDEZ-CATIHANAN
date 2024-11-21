@@ -7,8 +7,14 @@
     <title>Coffee Details</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: #6F4F1A;
+            font-family: 'Arial', sans-serif;
+        }
+    </style>
 </head>
-<body class="bg-light">
+<body>
     <div class="container mt-5">
         <div class="card shadow-sm">
             <div class="card-header text-dark fs-3 fw-bold">

@@ -67,7 +67,6 @@
                 @foreach ($coffee as $coffee)
                     <tr>
                         <td>
-                            <!-- Display the picture to the left of the coffee name -->
                             @if ($coffee->picture)
                                 <img src="{{ asset('storage/' . $coffee->picture) }}" alt="{{ $coffee->name }}" class="img-fluid rounded" style="max-width: 50px; margin-right: 10px;">
                             @endif

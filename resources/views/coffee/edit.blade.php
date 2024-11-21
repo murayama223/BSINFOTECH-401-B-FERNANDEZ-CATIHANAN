@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: #6F4F1A;
             font-family: 'Arial', sans-serif;
         }
         .container {
