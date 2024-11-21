@@ -97,18 +97,19 @@ class coffeeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-    {
-        $coffee = Coffee::findOrFail($id);
+public function destroy(string $id)
+{
+    $coffee = Coffee::findOrFail($id);
 
-
-        if ($coffee->picture) {
-            Storage::disk('public')->delete($coffee->picture);
-        }
-
-        $coffee->delete();
-
-        return redirect()->route('coffee.index')->with('success', 'Coffee product deleted successfully');
+    // Check if the coffee has an associated picture and delete it from storage
+    if ($coffee->picture) {
+        Storage::disk('public')->delete($coffee->picture);
     }
+
+    // Delete the coffee record
+    $coffee->delete();
+
+    return redirect()->route('coffee.index')->with('success', 'Coffee product deleted successfully');
+}
 
 }

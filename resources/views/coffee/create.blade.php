@@ -57,9 +57,10 @@
 </head>
 <body>
     <div class="container mt-4">
-        <h1>Add a New Coffee ingredient</h1>
-        <form action="{{ route('coffee.store') }}" method="POST">
+        <h1>Add a New Coffee Ingredient</h1>
+        <form action="{{ route('coffee.store') }}" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
             <div class="form-group mb-3">
                 <label for="name">Name</label>
                 <input type="text" name="name" class="form-control" required>
@@ -82,7 +83,7 @@
             </div>
             <div class="d-flex mt-4">
                 <button type="submit" class="btn btn-success">Add</button>
-                <a href="{{route('coffee.index')}}" class="btn btn-secondary">Cancel</a>
+                <a href="{{ route('coffee.index') }}" class="btn btn-secondary">Cancel</a>
             </div>
         </form>
     </div>
