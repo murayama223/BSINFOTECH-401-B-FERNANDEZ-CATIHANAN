@@ -16,9 +16,9 @@
 </head>
 <body>
     <div class="container mt-5">
-        <div class="card shadow-sm rounded-lg">
+        <div class="card rounded-lg">
 
-            <div class="card-header text-center text-white fs-3 fw-bold" style="background-color: #DEAA79;">
+            <div class="card-header text-center fs-3 fw-bold" style="background-color: #DEAA79;">
                 {{ $coffee->name }}
             </div>
 

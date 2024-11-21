@@ -46,12 +46,18 @@
 </head>
 <body>
     <div class="container mt-4" style="background-color: #DEAA79;">
-        <h1 class="text-center">Coffee Ingredients List</h1>
-        <a href="{{ route('coffee.create') }}" class="btn btn-success">Add New Coffee</a>
-        <br>
+        <div class="d-flex align-items-center mb-4">
+            <img src="{{ asset('storage/pictures/coffee.png') }}" alt="Coffee Logo" class="img-fluid" style="max-width: 50px; margin-right: 15px;">
+
+            <h2 class="text-center mb-0">Coffee Ingredients List</h2>
+        </div>
+
+        <a href="{{ route('coffee.create') }}" class="btn btn-success mb-3">Add New Coffee</a>
+
         @if (session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif
+
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -62,7 +68,6 @@
                     <th style="background-color: #DEAA79;">Actions</th>
                 </tr>
             </thead>
-
             <tbody>
                 @foreach ($coffee as $coffee)
                     <tr>
@@ -79,7 +84,7 @@
                             <div class="action-buttons">
                                 <a href="{{ route('coffee.show', $coffee->id) }}" class="btn btn-info">View</a>
                                 <a href="{{ route('coffee.edit', $coffee->id) }}" class="btn btn-primary">Edit</a>
-                                <form action="{{ route('coffee.destroy', $coffee->id)}}" method="POST">
+                                <form action="{{ route('coffee.destroy', $coffee->id)}}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">Delete</button>
@@ -92,5 +97,6 @@
         </table>
     </div>
 </body>
+
 
 </html>
